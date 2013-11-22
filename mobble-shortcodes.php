@@ -3,10 +3,11 @@
  Plugin Name: Mobble Shortcodes
 Plugin URI: http://philipjohn.co.uk/category/plugins/mobble-shortcodes
 Description: Deliver mobile-specific content using the functionality in the Mobble plugin.
-Version: 0.1
+Version: 0.2
 Author: Philip John
 Author URI: http://philipjohn.co.uk
 License: WTFPL
+Text Domain: mobble-shortcodes
 */
 
 /**
@@ -28,6 +29,9 @@ class Mobble_Shortcodes {
 	 * Calls the activation hook and creates the many shortcodes
 	 */
 	function __construct() {
+		// Add textdomain
+		add_action('init', array($this, 'load_textdomain'));
+		
 		// Call the activation hook
 		register_activation_hook( __FILE__, array($this, 'activation') );
 		
@@ -69,6 +73,10 @@ class Mobble_Shortcodes {
 		// Let's not let people activate it without Mobble
 		if (is_plugin_inactive('mobble/mobble.php'))
 			die(__('Ooops, you must have the Mobble plugin installed before you can use this! Please activate Mobble.', self::textdomain));
+	}
+	
+	function load_textdomain(){
+		load_plugin_textdomain(self::textdomain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
 	}
 	
 	/**

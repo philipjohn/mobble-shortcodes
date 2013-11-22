@@ -2,8 +2,8 @@
 Contributors: philipjohn
 Tags: mobile, shortcode, mobble, responsive
 Requires at least: 3.6
-Tested up to: 3.6.1
-Stable tag: 0.1
+Tested up to: 3.7.1
+Stable tag: 0.2
 License: WTFPL
 License URI: http://www.wtfpl.net/
 
@@ -76,6 +76,9 @@ Please note that in certain setups caching will cause undesired behaviour. If yo
 Why bother with the GPL when it limits use? WTFPL says you can do "What The Fuck you like" with this plugin. Print it on bedsheets and sleep with it for all I care.
 
 == Changelog ==
+
+= 0.2 = 
+* Added support for translations
 
 = 0.1 =
 * First version. Not a lot here.
