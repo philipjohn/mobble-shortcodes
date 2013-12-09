@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mobble Shortcodes v0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-22 17:50+0100\n"
-"PO-Revision-Date: 2013-11-22 17:51+0100\n"
+"POT-Creation-Date: 2013-12-09 18:08+0100\n"
+"PO-Revision-Date: 2013-12-09 18:08+0100\n"
 "Last-Translator: Philip John <phil@philipjohn.co.uk>\n"
 "Language-Team: Philip John <phil@philipjohn.co.uk>\n"
 "Language: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Poedit-Country: UNITED KINGDOM\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: /var/www/mobble-shortcodes.dev/www/wp-content/plugins/mobble-shortcodes/mobble-shortcodes.php:75
+#: ../mobble-shortcodes.php:75
 msgid "Ooops, you must have the Mobble plugin installed before you can use this! Please activate Mobble."
 msgstr ""
 
