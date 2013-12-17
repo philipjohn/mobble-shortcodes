@@ -19,12 +19,6 @@ Text Domain: mobble-shortcodes
 class Mobble_Shortcodes {
 	
 	/**
-	 * Easy textdomain access so as to avoid typing it out lots and getting it wrong!
-	 * @var string Textdomain for this plugin
-	 */
-	const textdomain = 'mobble-shortcodes';
-	
-	/**
 	 * Constructor for the Class
 	 * Calls the activation hook and creates the many shortcodes
 	 */
@@ -72,11 +66,11 @@ class Mobble_Shortcodes {
 	function activation() {
 		// Let's not let people activate it without Mobble
 		if (is_plugin_inactive('mobble/mobble.php'))
-			die(__('Ooops, you must have the Mobble plugin installed before you can use this! Please activate Mobble.', self::textdomain));
+			die(__('Ooops, you must have the Mobble plugin installed before you can use this! Please activate Mobble.', 'mobble-shortcodes'));
 	}
 	
 	function load_textdomain(){
-		load_plugin_textdomain(self::textdomain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
+		load_plugin_textdomain('mobble-shortcodes', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
 	}
 	
 	/**
