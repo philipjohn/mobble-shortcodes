@@ -3,7 +3,7 @@ Contributors: philipjohn
 Tags: mobile, shortcode, mobble, responsive
 Requires at least: 3.6
 Tested up to: 3.9
-Stable tag: trunk
+Stable tag: 0.2.1
 License: WTFPL
 License URI: http://www.wtfpl.net/
 

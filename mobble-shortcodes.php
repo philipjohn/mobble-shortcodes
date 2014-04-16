@@ -1,6 +1,6 @@
 <?php
 /*
- Plugin Name: Mobble Shortcodes
+Plugin Name: Mobble Shortcodes
 Plugin URI: http://philipjohn.co.uk/category/plugins/mobble-shortcodes
 Description: Deliver mobile-specific content using the functionality in the Mobble plugin.
 Version: 0.2.1
