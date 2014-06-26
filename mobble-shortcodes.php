@@ -3,11 +3,12 @@
 Plugin Name: Mobble Shortcodes
 Plugin URI: http://philipjohn.co.uk/category/plugins/mobble-shortcodes
 Description: Deliver mobile-specific content using the functionality in the Mobble plugin.
-Version: 0.2.1
+Version: 0.2.3
 Author: Philip John
 Author URI: http://philipjohn.co.uk
 License: WTFPL
 Text Domain: mobble-shortcodes
+GitHub Plugin URI: philipjohn/mobble-shortcodes
 */
 
 /**
@@ -80,196 +81,36 @@ class Mobble_Shortcodes {
 	 * @param string $tag The shortcode being used (mobble function)
 	 * @return string The content
 	 */
-	function shortcode($atts, $content, $tag) {
-		
-		switch ($tag){
-			
-			case 'is_handheld';
-				if (is_handheld())
-					return $content;
-				break;
-				
-			case 'is_not_handheld';
-				if (!is_handheld())
-					return $content;
-				break;
-				
-			case 'is_mobile':
-				if (is_mobile())
-					return $content;
-				break;
-				
-			case 'is_not_mobile':
-				if (!is_mobile())
-					return $content;
-				break;
-				
-			case 'is_tablet':
-				if (is_tablet())
-					return $content;
-				break;
-				
-			case 'is_not_tablet':
-				if (!is_tablet())
-					return $content;
-				break;
-				
-			case 'is_ios':
-				if (is_ios())
-					return $content;
-				break;
-				
-			case 'is_not_ios':
-				if (!is_ios())
-					return $content;
-				break;
-				
-			case 'is_iphone':
-				if (is_iphone())
-					return $content;
-				break;
-				
-			case 'is_not_iphone':
-				if (!is_iphone())
-					return $content;
-				break;
-				
-			case 'is_ipad':
-				if (is_ipad())
-					return $content;
-				break;
-				
-			case 'is_not_ipad':
-				if (!is_ipad())
-					return $content;
-				break;
-				
-			case 'is_ipod':
-				if (is_ipod())
-					return $content;
-				break;
-				
-			case 'is_not_ipod':
-				if (!is_ipod())
-					return $content;
-				break;
-				
-			case 'is_android':
-				if (is_android())
-					return $content;
-				break;
-				
-			case 'is_not_android':
-				if (!is_android())
-					return $content;
-				break;
-				
-			case 'is_blackberry':
-				if (is_blackberry())
-					return $content;
-				break;
-				
-			case 'is_not_blackberry':
-				if (!is_blackberry())
-					return $content;
-				break;
-				
-			case 'is_opera_mobile':
-				if (is_opera_mobile())
-					return $content;
-				break;
-				
-			case 'is_not_opera_mobile':
-				if (!is_opera_mobile())
-					return $content;
-				break;
-				
-			case 'is_symbian':
-				if (is_symbian())
-					return $content;
-				break;
-				
-			case 'is_not_symbian':
-				if (!is_symbian())
-					return $content;
-				break;
-				
-			case 'is_kindle':
-				if (is_kindle())
-					return $content;
-				break;
-				
-			case 'is_not_kindle':
-				if (!is_kindle())
-					return $content;
-				break;
-				
-			case 'is_windows_mobile':
-				if (is_windows_mobile())
-					return $content;
-				break;
-				
-			case 'is_not_windows_mobile':
-				if (!is_windows_mobile())
-					return $content;
-				break;
-				
-			case 'is_motorola':
-				if (is_motorola())
-					return $content;
-				break;
-				
-			case 'is_not_motorola':
-				if (!is_motorola())
-					return $content;
-				break;
-				
-			case 'is_samsung':
-				if (is_samsung())
-					return $content;
-				break;
-				
-			case 'is_not_samsung':
-				if (!is_samsung())
-					return $content;
-				break;
-				
-			case 'is_samsung_tablet':
-				if (is_samsung_tablet())
-					return $content;
-				break;
-				
-			case 'is_not_samsung_tablet':
-				if (!is_samsung_tablet())
-					return $content;
-				break;
-				
-			case 'is_sony_ericsson':
-				if (is_sony_ericsson())
-					return $content;
-				break;
-				
-			case 'is_not_sony_ericsson':
-				if (!is_sony_ericsson())
-					return $content;
-				break;
-				
-			case 'is_nintendo':
-				if (is_nintendo())
-					return $content;
-				break;
-				
-			case 'is_not_nintendo':
-				if (!is_nintendo())
-					return $content;
-				break;
-				
-			default:
-				return '';
-				
-				
+	function shortcode( $atts, $content, $tag ) {
+
+		// IS or IS NOT?
+		if ( strpos( $tag, 'is_not_' ) !== false ) { // not
+
+			$tag = substr( $tag, 7 );
+
+			// Call the Mobble function, look for false
+			if ( ! call_user_func( 'is_' . $tag ) )
+				return do_shortcode( $content );
+
 			return '';
+
 		}
+
+		else if ( strpos( $tag, 'is_' ) !== false ) { // is
+
+			$tag = substr( $tag, 3 );
+
+			// Call the mobile function, look for true
+			if ( call_user_func( 'is_' . $tag ) )
+				return do_shortcode( $content );
+
+			return '';
+
+		}
+
+		// Default to assuming no content should be shown just in case
+		return '';
+
 	}
 }
 new Mobble_Shortcodes();
