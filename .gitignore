@@ -2,3 +2,6 @@
 .buildpath
 .project
 .settings
+
+# SVN-controlled plugin for WP.org
+wporg
