@@ -2,7 +2,7 @@
 Contributors: philipjohn
 Tags: mobile, shortcode, mobble, responsive
 Requires at least: 3.6
-Tested up to: 3.9.1
+Tested up to: 4.0
 Stable tag: 0.2.4
 License: WTFPL
 License URI: http://www.wtfpl.net/
