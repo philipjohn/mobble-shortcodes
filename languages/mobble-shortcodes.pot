@@ -27,8 +27,7 @@ msgid "http://philipjohn.co.uk/category/plugins/mobble-shortcodes"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid ""
-"Deliver mobile-specific content using the functionality in the Mobble plugin."
+msgid "Deliver mobile-specific content using the functionality in the Mobble plugin."
 msgstr ""
 
 #. Author of the plugin/theme
